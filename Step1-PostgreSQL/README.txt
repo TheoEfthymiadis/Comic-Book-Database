@@ -30,7 +30,7 @@ https://drive.google.com/uc?id=1V4MLeoEiPQdocCbUHjR_7L9ZmxTufPFe
 goodreads_book_authors.json.gz:
 https://drive.google.com/uc?id=19cdwyXwfXx_HDIgxXaHzH0mrx8nMyLvC
 
-Move these files to your cloned repository. Do not unzip them!
+Move these files to the Step1-PostgreSQL folder of your cloned repository. Do not unzip them!
 
 5) Run the parser.py script. This parser will read the three files along with the 
 Comic_Book_Users_Orders.xlsx file and generate a new file named: 'data-import.sql'.
