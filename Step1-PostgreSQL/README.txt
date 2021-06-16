@@ -18,8 +18,15 @@ https://www.postgresql.org/download/
 The following steps can be used to reproduce the workflow:
 1) Clone the repository to a local folder
 2) Install PostgreSQL
-3) Feed the schema.sql file to PostgreSQL to create a new relational schema
-4) Download the data sets with authors, books and book revies from the following links:
+3) Connect to PostgreSQL and create a new, empty database (we will refer to it as [Your Database name])
+4) Feed the schema.sql file to PostgreSQL to create a new relational schema
+- Open the CMD
+- SET PGCLIENTENCODING=utf-8
+- chcp 65001
+- psql -U postgres –f "local_folder_path\schema.sql" [Your Database name]
+
+
+5) Download the data sets with authors, books and book revies from the following links:
 
 goodreads_books_comics_graphic.json.gz:
 https://drive.google.com/uc?id=1ICk5x0HXvXDp5Zt54CKPh5qz1HyUIn9m
@@ -30,11 +37,14 @@ https://drive.google.com/uc?id=1V4MLeoEiPQdocCbUHjR_7L9ZmxTufPFe
 goodreads_book_authors.json.gz:
 https://drive.google.com/uc?id=19cdwyXwfXx_HDIgxXaHzH0mrx8nMyLvC
 
-Move these files to the Step1-PostgreSQL folder of your cloned repository. Do not unzip them!
+Move these files to your cloned repository. Do not unzip them!
 
-5) Run the parser.py script. This parser will read the three files along with the 
+6) Run the parser.py script. This parser will read the three files along with the 
 Comic_Book_Users_Orders.xlsx file and generate a new file named: 'data-import.sql'.
 This file contains the postgreSQL statements to feed the data into the database.
 
-6) Feed the data-import.sql file to PostgreSQL in order to import the data to the DB
-7) Execute potential queries, such as the ones stored in the sample-queries.sql file.
+7) Feed the data-import.sql file to PostgreSQL in order to import the data to the DB
+
+- psql -U postgres –f "local_folder_path\data-import.sql" [Your Database name]
+
+8) Execute potential queries, such as the ones stored in the sample-queries.sql file.
